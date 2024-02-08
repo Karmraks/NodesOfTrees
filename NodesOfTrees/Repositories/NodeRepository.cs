@@ -105,7 +105,7 @@ namespace NodesOfTrees.Repositories
 
             if (newParentId.HasValue && newParentId.Value != nodeToUpdate.ParentId)
             {
-                var newParent = await _context.TreeNodes.FindAsync(newParentId.Value);
+                var newParent = await GetById(newParentId.Value);
                 if (newParent == null)
                 {
                     throw new ArgumentException("New parent node not found.");
